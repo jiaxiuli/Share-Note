@@ -1,0 +1,16 @@
+.sider-cotent-main {
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+    .sider-cotnent-logo {
+        width: 100%;
+        height: 64px;
+
+        > img {
+            width: 200px;
+            height: 60px;
+        }
+    }
+}
