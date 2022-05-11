@@ -7,7 +7,7 @@
  */
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { HomeOutlined, FileTextOutlined, SettingOutlined } from '@ant-design/icons';
 import './index.scss';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -27,8 +27,8 @@ function getItem(
   }
 
   const items: MenuProps['items'] = [
-    getItem('Navigation One', 'sub1', <MailOutlined />),
-    getItem('Navigation Two', 'sub2', <AppstoreOutlined />),
+    getItem('Home', 'home', <HomeOutlined />),
+    getItem('My Note', 'my_note', <FileTextOutlined />),
     getItem('Navigation Three', 'sub4', <SettingOutlined />),
   ];
 const Navigator = () => {
@@ -39,7 +39,7 @@ const Navigator = () => {
     return (
         <Menu
             onClick={onClick}
-            defaultSelectedKeys={['sub1']}
+            defaultSelectedKeys={['home']}
             mode="inline"
             items={items}
         />

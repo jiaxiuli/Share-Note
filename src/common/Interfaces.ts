@@ -5,6 +5,16 @@
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/common/Interfaces.ts
  */
-interface Root {}
+import * as React from 'react';
 
-export default Root;
+export interface CardProps {
+    className?: string;
+    style?: React.CSSProperties;
+}
+
+export interface PostsItemProps {
+    title: string;
+    content: string;
+    className?: string;
+    style?: React.CSSProperties;
+}

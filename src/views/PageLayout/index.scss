@@ -1,0 +1,32 @@
+.page-layout-main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+
+    .page-layout-sider {
+        position: relative;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 2;
+        box-shadow: 15px 0px 10px -16px rgba(0, 0, 0, 0.2);
+    }
+
+    .page-layout-right {
+        position: relative;
+        width: 100%;
+
+        .page-layout-right-header {
+            background-color: #fff;
+            z-index: 1;
+            box-shadow: 0px 15px 10px -16px rgba(0, 0, 0, 0.1);    
+        }
+
+        .page-layout-right-content {
+            position: relative;
+            overflow: auto;
+        }
+    }
+}

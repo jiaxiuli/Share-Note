@@ -1,0 +1,17 @@
+.trending-main {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0px;
+
+    .trending-cards-box {
+        display: flex;
+        justify-content: space-between;
+
+        .card {
+            width: 23%;
+            height: 150px;
+            background-color: azure;
+            border-radius: 8px;
+        }
+    }
+}

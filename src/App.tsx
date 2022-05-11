@@ -5,9 +5,9 @@
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/App.tsx
  */
-import Home from "./views/Home";
+import PageLayout from "./views/PageLayout";
 import './App.css';
 
-const App = () => <Home />
+const App = () => <PageLayout />
 
 export default App;
