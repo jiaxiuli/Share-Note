@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sharenote-staging-52625-authRole",
+      "UnauthRoleArn": "arn:aws:iam::636418096148:role/amplify-sharenote-staging-52625-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::636418096148:role/amplify-sharenote-staging-52625-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-sharenote-staging-52625-deployment",
+      "UnauthRoleName": "amplify-sharenote-staging-52625-unauthRole",
+      "StackName": "amplify-sharenote-staging-52625",
+      "StackId": "arn:aws:cloudformation:us-west-2:636418096148:stack/amplify-sharenote-staging-52625/11880c90-d1b4-11ec-a9f9-02a3336bc1cf",
+      "AmplifyAppId": "d2tdjgbxtaq2uw"
+    }
+  }
+}
