@@ -10,6 +10,11 @@
       "StackName": "amplify-sharenote-staging-52625",
       "StackId": "arn:aws:cloudformation:us-west-2:636418096148:stack/amplify-sharenote-staging-52625/11880c90-d1b4-11ec-a9f9-02a3336bc1cf",
       "AmplifyAppId": "d2tdjgbxtaq2uw"
+    },
+    "categories": {
+      "auth": {
+        "ShareNote": {}
+      }
     }
   }
 }

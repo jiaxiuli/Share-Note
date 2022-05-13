@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-12 18:10:11
+ * @LastEditTime: 2022-05-13 09:07:42
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/components/PostsList/index.tsx
  */
@@ -31,7 +31,7 @@ const PostsList = ():React.ReactElement => {
             <div className='posts-list-box'>
                 <Card>
                     {
-                        posts?.listPosts?.items.map((item: any) => {
+                        posts?.listNotes?.items.map((item: any) => {
                             return <PostsItem key={item.id} title={item.title} content={item.content}/>
                         }) || null
                     }

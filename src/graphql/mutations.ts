@@ -2,20 +2,35 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createPosts = /* GraphQL */ `
-  mutation CreatePosts(
-    $input: CreatePostsInput!
-    $condition: ModelPostsConditionInput
+export const createNote = /* GraphQL */ `
+  mutation CreateNote(
+    $input: CreateNoteInput!
+    $condition: ModelNoteConditionInput
   ) {
-    createPosts(input: $input, condition: $condition) {
+    createNote(input: $input, condition: $condition) {
       id
       title
       content
-      author {
+      userID
+      User {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -27,24 +42,38 @@ export const createPosts = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      postsAuthorId
     }
   }
 `;
-export const updatePosts = /* GraphQL */ `
-  mutation UpdatePosts(
-    $input: UpdatePostsInput!
-    $condition: ModelPostsConditionInput
+export const updateNote = /* GraphQL */ `
+  mutation UpdateNote(
+    $input: UpdateNoteInput!
+    $condition: ModelNoteConditionInput
   ) {
-    updatePosts(input: $input, condition: $condition) {
+    updateNote(input: $input, condition: $condition) {
       id
       title
       content
-      author {
+      userID
+      User {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -56,24 +85,38 @@ export const updatePosts = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      postsAuthorId
     }
   }
 `;
-export const deletePosts = /* GraphQL */ `
-  mutation DeletePosts(
-    $input: DeletePostsInput!
-    $condition: ModelPostsConditionInput
+export const deleteNote = /* GraphQL */ `
+  mutation DeleteNote(
+    $input: DeleteNoteInput!
+    $condition: ModelNoteConditionInput
   ) {
-    deletePosts(input: $input, condition: $condition) {
+    deleteNote(input: $input, condition: $condition) {
       id
       title
       content
-      author {
+      userID
+      User {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -85,7 +128,6 @@ export const deletePosts = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      postsAuthorId
     }
   }
 `;
@@ -97,8 +139,32 @@ export const createUser = /* GraphQL */ `
     createUser(input: $input, condition: $condition) {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -115,8 +181,32 @@ export const updateUser = /* GraphQL */ `
     updateUser(input: $input, condition: $condition) {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -133,8 +223,32 @@ export const deleteUser = /* GraphQL */ `
     deleteUser(input: $input, condition: $condition) {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version

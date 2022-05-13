@@ -1,14 +1,15 @@
-type Posts @model @auth(rules: [{allow: public}]) {
+type Note @model @auth(rules: [{allow: public}]) {
   id: ID!
-  title: String
-  content: String
-  author: User! @hasOne
+  title: String!
+  content: String!
+  userID: ID! @index(name: "byUser")
+  User: User @belongsTo
 }
 
 type User @model @auth(rules: [{allow: public}]) {
   id: ID!
-  username: String!
-  age: Int
-  email: String!
+  username: String
+  email: AWSEmail!
+  Notes: [Note] @hasMany(indexName: "byUser", fields: ["id"])
 }
  

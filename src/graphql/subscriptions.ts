@@ -2,17 +2,32 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreatePosts = /* GraphQL */ `
-  subscription OnCreatePosts {
-    onCreatePosts {
+export const onCreateNote = /* GraphQL */ `
+  subscription OnCreateNote {
+    onCreateNote {
       id
       title
       content
-      author {
+      userID
+      User {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -24,21 +39,35 @@ export const onCreatePosts = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      postsAuthorId
     }
   }
 `;
-export const onUpdatePosts = /* GraphQL */ `
-  subscription OnUpdatePosts {
-    onUpdatePosts {
+export const onUpdateNote = /* GraphQL */ `
+  subscription OnUpdateNote {
+    onUpdateNote {
       id
       title
       content
-      author {
+      userID
+      User {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -50,21 +79,35 @@ export const onUpdatePosts = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      postsAuthorId
     }
   }
 `;
-export const onDeletePosts = /* GraphQL */ `
-  subscription OnDeletePosts {
-    onDeletePosts {
+export const onDeleteNote = /* GraphQL */ `
+  subscription OnDeleteNote {
+    onDeleteNote {
       id
       title
       content
-      author {
+      userID
+      User {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -76,7 +119,6 @@ export const onDeletePosts = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
-      postsAuthorId
     }
   }
 `;
@@ -85,8 +127,32 @@ export const onCreateUser = /* GraphQL */ `
     onCreateUser {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -100,8 +166,32 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -115,8 +205,32 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version

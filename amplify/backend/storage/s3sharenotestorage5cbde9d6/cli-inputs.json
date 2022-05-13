@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3sharenotestorage5cbde9d6",
+  "bucketName": "share-note-storage-5cbde9d6",
+  "policyUUID": "b32c5abc",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

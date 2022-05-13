@@ -2,12 +2,38 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getPosts = /* GraphQL */ `
-  query GetPosts($id: ID!) {
-    getPosts(id: $id) {
+export const getNote = /* GraphQL */ `
+  query GetNote($id: ID!) {
+    getNote(id: $id) {
       id
       title
       content
+      userID
+      User {
+        id
+        username
+        email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       createdAt
       updatedAt
       _version
@@ -16,17 +42,32 @@ export const getPosts = /* GraphQL */ `
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostsFilterInput
+export const listNotes = /* GraphQL */ `
+  query ListNotes(
+    $filter: ModelNoteFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         title
         content
+        userID
+        User {
+          id
+          username
+          email
+          Notes {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         createdAt
         updatedAt
         _version
@@ -38,14 +79,14 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
-export const syncPosts = /* GraphQL */ `
-  query SyncPosts(
-    $filter: ModelPostsFilterInput
+export const syncNotes = /* GraphQL */ `
+  query SyncNotes(
+    $filter: ModelNoteFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncPosts(
+    syncNotes(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -55,6 +96,21 @@ export const syncPosts = /* GraphQL */ `
         id
         title
         content
+        userID
+        User {
+          id
+          username
+          email
+          Notes {
+            nextToken
+            startedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
         createdAt
         updatedAt
         _version
@@ -71,8 +127,32 @@ export const getUser = /* GraphQL */ `
     getUser(id: $id) {
       id
       username
-      age
       email
+      Notes {
+        items {
+          id
+          title
+          content
+          userID
+          User {
+            id
+            username
+            email
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -91,8 +171,22 @@ export const listUsers = /* GraphQL */ `
       items {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
@@ -120,8 +214,22 @@ export const syncUsers = /* GraphQL */ `
       items {
         id
         username
-        age
         email
+        Notes {
+          items {
+            id
+            title
+            content
+            userID
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
         createdAt
         updatedAt
         _version
