@@ -2,135 +2,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createNote = /* GraphQL */ `
-  mutation CreateNote(
-    $input: CreateNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    createNote(input: $input, condition: $condition) {
-      id
-      title
-      content
-      userID
-      User {
-        id
-        username
-        email
-        Notes {
-          items {
-            id
-            title
-            content
-            userID
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateNote = /* GraphQL */ `
-  mutation UpdateNote(
-    $input: UpdateNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    updateNote(input: $input, condition: $condition) {
-      id
-      title
-      content
-      userID
-      User {
-        id
-        username
-        email
-        Notes {
-          items {
-            id
-            title
-            content
-            userID
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteNote = /* GraphQL */ `
-  mutation DeleteNote(
-    $input: DeleteNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    deleteNote(input: $input, condition: $condition) {
-      id
-      title
-      content
-      userID
-      User {
-        id
-        username
-        email
-        Notes {
-          items {
-            id
-            title
-            content
-            userID
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
 export const createUser = /* GraphQL */ `
   mutation CreateUser(
     $input: CreateUserInput!
@@ -138,24 +9,14 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
-      username
       email
+      username
       Notes {
         items {
           id
           title
           content
-          userID
-          User {
-            id
-            username
-            email
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
+          AuthorId
           createdAt
           updatedAt
           _version
@@ -180,24 +41,14 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
-      username
       email
+      username
       Notes {
         items {
           id
           title
           content
-          userID
-          User {
-            id
-            username
-            email
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
+          AuthorId
           createdAt
           updatedAt
           _version
@@ -222,24 +73,14 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
-      username
       email
+      username
       Notes {
         items {
           id
           title
           content
-          userID
-          User {
-            id
-            username
-            email
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
+          AuthorId
           createdAt
           updatedAt
           _version
@@ -249,6 +90,60 @@ export const deleteUser = /* GraphQL */ `
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const createNote = /* GraphQL */ `
+  mutation CreateNote(
+    $input: CreateNoteInput!
+    $condition: ModelNoteConditionInput
+  ) {
+    createNote(input: $input, condition: $condition) {
+      id
+      title
+      content
+      AuthorId
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateNote = /* GraphQL */ `
+  mutation UpdateNote(
+    $input: UpdateNoteInput!
+    $condition: ModelNoteConditionInput
+  ) {
+    updateNote(input: $input, condition: $condition) {
+      id
+      title
+      content
+      AuthorId
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteNote = /* GraphQL */ `
+  mutation DeleteNote(
+    $input: DeleteNoteInput!
+    $condition: ModelNoteConditionInput
+  ) {
+    deleteNote(input: $input, condition: $condition) {
+      id
+      title
+      content
+      AuthorId
       createdAt
       updatedAt
       _version

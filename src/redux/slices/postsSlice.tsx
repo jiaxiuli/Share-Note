@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 16:33:13
- * @LastEditTime: 2022-05-13 08:57:39
+ * @LastEditTime: 2022-05-13 16:31:24
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/redux/slices/postsSlice.tsx
  */
@@ -10,7 +10,7 @@ import {
     createSlice,
 } from "@reduxjs/toolkit";
 import API from "@aws-amplify/api";
-import { listNotes } from "../../graphql/queries";
+import { listUsers } from "../../graphql/queries";
 
 const initialState = {
     list: [] as any,
@@ -22,7 +22,7 @@ export const getPostsAsync = createAsyncThunk(
     "posts/getPosts",
     async () => {
         const response: any = await API.graphql({
-            query: listNotes
+            query: listUsers
         });
         return response.data;
     }

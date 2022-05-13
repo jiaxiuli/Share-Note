@@ -3,7 +3,7 @@
   "serviceConfiguration": {
     "apiName": "ShareNote",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-b7414548-6a14-4c88-9847-621dd32eabd6/amplify/backend/api/ShareNote/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-45376caf-2e25-4ec5-936b-0b6418d2b551/amplify/backend/api/ShareNote/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "keyDescription": "api key description",
@@ -12,6 +12,10 @@
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
+      },
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authShareNote"
       }
     ],
     "conflictResolution": {

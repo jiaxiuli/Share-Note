@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-11 15:10:29
- * @LastEditTime: 2022-05-11 16:43:04
+ * @LastEditTime: 2022-05-13 16:51:50
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/PageLayout/index.tsx
  */
@@ -9,12 +9,12 @@ import { Layout } from 'antd';
 import Home from '../Home';
 import SiderContent from '../../components/SiderContent';
 import HeaderContent from '../../components/HeaderContent';
+import Login from '../Login';
 import { Routes, Route, Navigate } from "react-router-dom";
 import './index.scss';
 
 const PageLayout = () => {
     const { Header, Sider, Content } = Layout;
-    
     
     return (
         <>
@@ -35,6 +35,7 @@ const PageLayout = () => {
                         <Routes>
                             <Route path="/" element={<Navigate to="/home" />} />
                             <Route path="home" element={<Home />} />
+                            <Route path="login" element={<Login />} />
                         </Routes>
                     </Content>
                 </Layout>
