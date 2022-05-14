@@ -18,6 +18,10 @@ export type AmplifyDependentResourcesAttributes = {
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string"
+        },
+        "userPoolGroups": {
+            "shareNoteUserGroupRole": "string",
+            "shareNoteAdminGroupRole": "string"
         }
     },
     "storage": {
