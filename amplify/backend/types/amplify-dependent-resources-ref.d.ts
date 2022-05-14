@@ -13,6 +13,8 @@ export type AmplifyDependentResourcesAttributes = {
     },
     "auth": {
         "ShareNote": {
+            "IdentityPoolId": "string",
+            "IdentityPoolName": "string",
             "UserPoolId": "string",
             "UserPoolArn": "string",
             "UserPoolName": "string",

@@ -1,18 +1,16 @@
 {
   "trigger": true,
-  "modules": [
-    "add-to-group"
-  ],
+  "modules": ["add-to-group", "custom"],
   "parentResource": "ShareNote",
   "functionName": "ShareNotePostConfirmation",
   "resourceName": "ShareNotePostConfirmation",
   "parentStack": "auth",
   "triggerEnvs": "[]",
-  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
+  "triggerDir": "C:\\snapshot\\repo\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
   "triggerTemplate": "PostConfirmation.json.ejs",
   "triggerEventPath": "PostConfirmation.event.json",
   "roleName": "ShareNotePostConfirmation",
   "skipEdit": true,
-  "GROUP": "ampliy push",
+  "GROUP": "shareNoteUser",
   "enableCors": false
 }

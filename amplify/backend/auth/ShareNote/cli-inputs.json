@@ -1,6 +1,8 @@
 {
   "version": "1",
   "cognitoConfig": {
+    "identityPoolName": "sharenoteb86de112_identitypool_b86de112",
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "sharen3ccd618f",
     "userPoolName": "ShareNote",
     "autoVerifiedAttributes": [
@@ -71,13 +73,13 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "3ccd618f",
     "resourceName": "ShareNote",
-    "authSelections": "userPoolOnly",
+    "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
     "usernameAttributes": [
       "email"
     ],
     "useDefault": "manual",
-    "userPoolGroups": false,
+    "userPoolGroups": true,
     "userPoolGroupList": [
       "shareNoteUser",
       "shareNoteAdmin"
@@ -112,7 +114,8 @@
     "hostedUI": false,
     "triggers": {
       "PostConfirmation": [
-        "add-to-group"
+        "add-to-group",
+        "custom"
       ]
     },
     "adminQueryGroup": "shareNoteAdmin",
@@ -123,6 +126,7 @@
       "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
     ],
     "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"ShareNotePostConfirmation\"\n  }\n]",
-    "authProviders": []
+    "authProviders": [],
+    "thirdPartyAuth": false
   }
 }
