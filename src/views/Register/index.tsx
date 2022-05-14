@@ -1,19 +1,41 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-13 16:38:12
- * @LastEditTime: 2022-05-13 18:08:52
+ * @LastEditTime: 2022-05-14 08:59:05
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/Register/index.tsx
  */
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import Card from '../../components/Card';
 import FlexBox from '../../components/FlexBox';
+import { signUp } from '../../redux/slices/AuthSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import './index.scss';
 
-const Register = () => {
-    const onFinish = (values: any) => {
-        console.log('Success:', values);
+const Register = (): React.ReactElement => {
+    const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const onFinish = async (values: any) => {
+        setIsLoading(true);
+        const res = await dispatch(signUp({
+            username: values.email,
+            password: values.password,
+            email: values.email
+        }) as any);
+        console.log('sign up return', res);
+        setIsLoading(false);
+        if (res.meta.requestStatus === 'rejected') {
+            message.error(res.error.message);
+        }
+        if (res.meta.requestStatus === 'fulfilled') {
+            message.success('Signed up successfully!');
+            navigate('/email-confirm');
+        }
     };
     
     const onFinishFailed = (errorInfo: any) => {
@@ -54,17 +76,23 @@ const Register = () => {
                             </Form.Item>
 
                             <Form.Item
-                                label="Username"
-                                name="username"
-                                rules={[{ required: true, message: 'Please input your username!' }]}
-                            >
-                                <Input />
-                            </Form.Item>
-
-                            <Form.Item
                                 label="Password"
                                 name="password"
-                                rules={[{ required: true, message: 'Please input your password!' }]}
+                                rules={[
+                                    { 
+                                        required: true,
+                                        message: 'Please input your password!' 
+                                    },
+                                    ({ getFieldValue }) => ({
+                                        validator(_, value) {
+                                            const result = value.match(/^.*[A-Z]+.*$/);
+                                            if (!value || result) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject(new Error('Password must contain uppercase letters'));
+                                        },
+                                    }),
+                                ]}
                             >
                                 <Input.Password />
                             </Form.Item>
@@ -81,10 +109,10 @@ const Register = () => {
                                 },
                                 ({ getFieldValue }) => ({
                                     validator(_, value) {
-                                    if (!value || getFieldValue('password') === value) {
-                                        return Promise.resolve();
-                                    }
-                                    return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                                        if (!value || getFieldValue('password') === value) {
+                                            return Promise.resolve();
+                                        }
+                                        return Promise.reject(new Error('The two passwords that you entered do not match!'));
                                     },
                                 }),
                                 ]}
@@ -93,7 +121,7 @@ const Register = () => {
                             </Form.Item>
 
                             <Form.Item wrapperCol={{ offset: 9, span: 2 }}>
-                                <Button type="primary" htmlType="submit">
+                                <Button type="primary" htmlType="submit" loading={isLoading}>
                                     Register
                                 </Button>
                             </Form.Item>

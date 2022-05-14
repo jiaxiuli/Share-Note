@@ -8,21 +8,6 @@ export const getUser = /* GraphQL */ `
       id
       email
       username
-      Notes {
-        items {
-          id
-          title
-          content
-          AuthorId
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
@@ -42,21 +27,6 @@ export const listUsers = /* GraphQL */ `
         id
         email
         username
-        Notes {
-          items {
-            id
-            title
-            content
-            AuthorId
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
-          nextToken
-          startedAt
-        }
         createdAt
         updatedAt
         _version
@@ -85,88 +55,6 @@ export const syncUsers = /* GraphQL */ `
         id
         email
         username
-        Notes {
-          items {
-            id
-            title
-            content
-            AuthorId
-            createdAt
-            updatedAt
-            _version
-            _deleted
-            _lastChangedAt
-          }
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const getNote = /* GraphQL */ `
-  query GetNote($id: ID!) {
-    getNote(id: $id) {
-      id
-      title
-      content
-      AuthorId
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const listNotes = /* GraphQL */ `
-  query ListNotes(
-    $filter: ModelNoteFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listNotes(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        title
-        content
-        AuthorId
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-  }
-`;
-export const syncNotes = /* GraphQL */ `
-  query SyncNotes(
-    $filter: ModelNoteFilterInput
-    $limit: Int
-    $nextToken: String
-    $lastSync: AWSTimestamp
-  ) {
-    syncNotes(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-      lastSync: $lastSync
-    ) {
-      items {
-        id
-        title
-        content
-        AuthorId
         createdAt
         updatedAt
         _version

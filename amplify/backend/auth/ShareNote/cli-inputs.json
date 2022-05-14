@@ -1,8 +1,6 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "testAuthIdentityPool",
-    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "sharen3ccd618f",
     "userPoolName": "ShareNote",
     "autoVerifiedAttributes": [
@@ -14,14 +12,14 @@
     ],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Verification code: {####}",
-    "emailVerificationMessage": "Verification code: {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [
       "Requires Lowercase",
-      "Requires Numbers",
-      "Requires Uppercase"
+      "Requires Uppercase",
+      "Requires Numbers"
     ],
     "requiredAttributes": [
       "email"
@@ -29,23 +27,62 @@
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [],
-    "userpoolClientReadAttributes": [],
+    "userpoolClientWriteAttributes": [
+      "address",
+      "birthdate",
+      "family_name",
+      "middle_name",
+      "gender",
+      "locale",
+      "given_name",
+      "name",
+      "nickname",
+      "phone_number",
+      "preferred_username",
+      "picture",
+      "profile",
+      "updated_at",
+      "website",
+      "zoneinfo",
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "address",
+      "birthdate",
+      "email",
+      "family_name",
+      "middle_name",
+      "gender",
+      "locale",
+      "given_name",
+      "name",
+      "nickname",
+      "phone_number",
+      "preferred_username",
+      "picture",
+      "profile",
+      "updated_at",
+      "website",
+      "zoneinfo",
+      "email_verified",
+      "phone_number_verified"
+    ],
     "userpoolClientLambdaRole": "ShareN3ccd618f_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "3ccd618f",
     "resourceName": "ShareNote",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "serviceName": "Cognito",
     "usernameAttributes": [
       "email"
     ],
     "useDefault": "manual",
     "userPoolGroups": false,
-    "userPoolGroupList": [],
-    "adminQueries": false,
-    "thirdPartyAuth": false,
-    "authProviders": [],
+    "userPoolGroupList": [
+      "shareNoteUser",
+      "shareNoteAdmin"
+    ],
+    "adminQueries": true,
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,
     "authRoleArn": {
@@ -61,6 +98,31 @@
       ]
     },
     "breakCircularDependency": true,
-    "dependsOn": []
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "ShareNotePostConfirmation",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
+    "hostedUI": false,
+    "triggers": {
+      "PostConfirmation": [
+        "add-to-group"
+      ]
+    },
+    "adminQueryGroup": "shareNoteAdmin",
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": [
+      "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
+    ],
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"ShareNotePostConfirmation\"\n  }\n]",
+    "authProviders": []
   }
 }

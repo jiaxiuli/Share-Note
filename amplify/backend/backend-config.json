@@ -3,15 +3,7 @@
     "ShareNote": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "ShareNote",
-          "attributes": [
-            "UserPoolId"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "output": {
         "authConfig": {
           "defaultAuthentication": {
@@ -24,23 +16,49 @@
           "additionalAuthenticationProviders": [
             {
               "authenticationType": "AWS_IAM"
-            },
-            {
-              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-              "userPoolConfig": {
-                "userPoolId": "authShareNote"
-              }
             }
           ]
         }
       }
+    },
+    "AdminQueries": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "authorizationType": "AMAZON_COGNITO_USER_POOLS",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "ShareNote",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "AdminQueriesb0e8523a",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ]
     }
   },
   "auth": {
     "ShareNote": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "ShareNotePostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
       "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
@@ -54,8 +72,8 @@
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": [
             "REQUIRES_LOWERCASE",
-            "REQUIRES_NUMBERS",
-            "REQUIRES_UPPERCASE"
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS"
           ]
         },
         "mfaConfiguration": "OFF",
@@ -66,6 +84,21 @@
           "EMAIL"
         ]
       }
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "ShareNote",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID"
+          ]
+        }
+      ]
     }
   },
   "storage": {
@@ -73,6 +106,27 @@
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": []
+    }
+  },
+  "function": {
+    "AdminQueriesb0e8523a": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "ShareNote",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ]
+    },
+    "ShareNotePostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   }
 }

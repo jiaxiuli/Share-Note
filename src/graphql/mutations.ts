@@ -11,21 +11,6 @@ export const createUser = /* GraphQL */ `
       id
       email
       username
-      Notes {
-        items {
-          id
-          title
-          content
-          AuthorId
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
@@ -43,21 +28,6 @@ export const updateUser = /* GraphQL */ `
       id
       email
       username
-      Notes {
-        items {
-          id
-          title
-          content
-          AuthorId
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
@@ -75,75 +45,6 @@ export const deleteUser = /* GraphQL */ `
       id
       email
       username
-      Notes {
-        items {
-          id
-          title
-          content
-          AuthorId
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createNote = /* GraphQL */ `
-  mutation CreateNote(
-    $input: CreateNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    createNote(input: $input, condition: $condition) {
-      id
-      title
-      content
-      AuthorId
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateNote = /* GraphQL */ `
-  mutation UpdateNote(
-    $input: UpdateNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    updateNote(input: $input, condition: $condition) {
-      id
-      title
-      content
-      AuthorId
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteNote = /* GraphQL */ `
-  mutation DeleteNote(
-    $input: DeleteNoteInput!
-    $condition: ModelNoteConditionInput
-  ) {
-    deleteNote(input: $input, condition: $condition) {
-      id
-      title
-      content
-      AuthorId
       createdAt
       updatedAt
       _version

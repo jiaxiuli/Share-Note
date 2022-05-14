@@ -7,6 +7,13 @@ const awsmobile = {
     "aws_appsync_region": "us-west-2",
     "aws_appsync_authenticationType": "API_KEY",
     "aws_appsync_apiKey": "da2-n4cudg242jbevba2mske3gepky",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "AdminQueries",
+            "endpoint": "https://yc5yixau59.execute-api.us-west-2.amazonaws.com/staging",
+            "region": "us-west-2"
+        }
+    ],
     "aws_cognito_identity_pool_id": "us-west-2:b53893d3-f911-42ab-8d74-55df950589df",
     "aws_cognito_region": "us-west-2",
     "aws_user_pools_id": "us-west-2_xumULWRTu",
@@ -27,8 +34,8 @@ const awsmobile = {
         "passwordPolicyMinLength": 8,
         "passwordPolicyCharacters": [
             "REQUIRES_LOWERCASE",
-            "REQUIRES_NUMBERS",
-            "REQUIRES_UPPERCASE"
+            "REQUIRES_UPPERCASE",
+            "REQUIRES_NUMBERS"
         ]
     },
     "aws_cognito_verification_mechanisms": [

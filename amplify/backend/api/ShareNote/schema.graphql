@@ -1,14 +1,6 @@
-type User @model @auth(rules: [{allow: public}, {allow: private}]) {
+type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   email: AWSEmail!
-  username: String!
-  Notes: [Note] @hasMany(indexName: "byUser", fields: ["id"])
-}
-
-type Note @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  title: String!
-  content: String!
-  AuthorId: ID! @index(name: "byUser")
+  username: String
 }
  

@@ -5,7 +5,7 @@
 export type CreateUserInput = {
   id?: string | null,
   email: string,
-  username: string,
+  username?: string | null,
   _version?: number | null,
 };
 
@@ -61,28 +61,7 @@ export type User = {
   __typename: "User",
   id: string,
   email: string,
-  username: string,
-  Notes?: ModelNoteConnection | null,
-  createdAt: string,
-  updatedAt: string,
-  _version: number,
-  _deleted?: boolean | null,
-  _lastChangedAt: number,
-};
-
-export type ModelNoteConnection = {
-  __typename: "ModelNoteConnection",
-  items:  Array<Note | null >,
-  nextToken?: string | null,
-  startedAt?: number | null,
-};
-
-export type Note = {
-  __typename: "Note",
-  id: string,
-  title: string,
-  content: string,
-  AuthorId: string,
+  username?: string | null,
   createdAt: string,
   updatedAt: string,
   _version: number,
@@ -102,21 +81,13 @@ export type DeleteUserInput = {
   _version?: number | null,
 };
 
-export type CreateNoteInput = {
-  id?: string | null,
-  title: string,
-  content: string,
-  AuthorId: string,
-  _version?: number | null,
-};
-
-export type ModelNoteConditionInput = {
-  title?: ModelStringInput | null,
-  content?: ModelStringInput | null,
-  AuthorId?: ModelIDInput | null,
-  and?: Array< ModelNoteConditionInput | null > | null,
-  or?: Array< ModelNoteConditionInput | null > | null,
-  not?: ModelNoteConditionInput | null,
+export type ModelUserFilterInput = {
+  id?: ModelIDInput | null,
+  email?: ModelStringInput | null,
+  username?: ModelStringInput | null,
+  and?: Array< ModelUserFilterInput | null > | null,
+  or?: Array< ModelUserFilterInput | null > | null,
+  not?: ModelUserFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -135,43 +106,11 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type UpdateNoteInput = {
-  id: string,
-  title?: string | null,
-  content?: string | null,
-  AuthorId?: string | null,
-  _version?: number | null,
-};
-
-export type DeleteNoteInput = {
-  id: string,
-  _version?: number | null,
-};
-
-export type ModelUserFilterInput = {
-  id?: ModelIDInput | null,
-  email?: ModelStringInput | null,
-  username?: ModelStringInput | null,
-  and?: Array< ModelUserFilterInput | null > | null,
-  or?: Array< ModelUserFilterInput | null > | null,
-  not?: ModelUserFilterInput | null,
-};
-
 export type ModelUserConnection = {
   __typename: "ModelUserConnection",
   items:  Array<User | null >,
   nextToken?: string | null,
   startedAt?: number | null,
-};
-
-export type ModelNoteFilterInput = {
-  id?: ModelIDInput | null,
-  title?: ModelStringInput | null,
-  content?: ModelStringInput | null,
-  AuthorId?: ModelIDInput | null,
-  and?: Array< ModelNoteFilterInput | null > | null,
-  or?: Array< ModelNoteFilterInput | null > | null,
-  not?: ModelNoteFilterInput | null,
 };
 
 export type CreateUserMutationVariables = {
@@ -184,24 +123,7 @@ export type CreateUserMutation = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -220,24 +142,7 @@ export type UpdateUserMutation = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -256,84 +161,7 @@ export type DeleteUserMutation = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type CreateNoteMutationVariables = {
-  input: CreateNoteInput,
-  condition?: ModelNoteConditionInput | null,
-};
-
-export type CreateNoteMutation = {
-  createNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type UpdateNoteMutationVariables = {
-  input: UpdateNoteInput,
-  condition?: ModelNoteConditionInput | null,
-};
-
-export type UpdateNoteMutation = {
-  updateNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type DeleteNoteMutationVariables = {
-  input: DeleteNoteInput,
-  condition?: ModelNoteConditionInput | null,
-};
-
-export type DeleteNoteMutation = {
-  deleteNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -351,24 +179,7 @@ export type GetUserQuery = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -390,24 +201,7 @@ export type ListUsersQuery = {
       __typename: "User",
       id: string,
       email: string,
-      username: string,
-      Notes?:  {
-        __typename: "ModelNoteConnection",
-        items:  Array< {
-          __typename: "Note",
-          id: string,
-          title: string,
-          content: string,
-          AuthorId: string,
-          createdAt: string,
-          updatedAt: string,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
-        } | null >,
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
+      username?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -433,96 +227,7 @@ export type SyncUsersQuery = {
       __typename: "User",
       id: string,
       email: string,
-      username: string,
-      Notes?:  {
-        __typename: "ModelNoteConnection",
-        items:  Array< {
-          __typename: "Note",
-          id: string,
-          title: string,
-          content: string,
-          AuthorId: string,
-          createdAt: string,
-          updatedAt: string,
-          _version: number,
-          _deleted?: boolean | null,
-          _lastChangedAt: number,
-        } | null >,
-        nextToken?: string | null,
-        startedAt?: number | null,
-      } | null,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type GetNoteQueryVariables = {
-  id: string,
-};
-
-export type GetNoteQuery = {
-  getNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type ListNotesQueryVariables = {
-  filter?: ModelNoteFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-};
-
-export type ListNotesQuery = {
-  listNotes?:  {
-    __typename: "ModelNoteConnection",
-    items:  Array< {
-      __typename: "Note",
-      id: string,
-      title: string,
-      content: string,
-      AuthorId: string,
-      createdAt: string,
-      updatedAt: string,
-      _version: number,
-      _deleted?: boolean | null,
-      _lastChangedAt: number,
-    } | null >,
-    nextToken?: string | null,
-    startedAt?: number | null,
-  } | null,
-};
-
-export type SyncNotesQueryVariables = {
-  filter?: ModelNoteFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
-  lastSync?: number | null,
-};
-
-export type SyncNotesQuery = {
-  syncNotes?:  {
-    __typename: "ModelNoteConnection",
-    items:  Array< {
-      __typename: "Note",
-      id: string,
-      title: string,
-      content: string,
-      AuthorId: string,
+      username?: string | null,
       createdAt: string,
       updatedAt: string,
       _version: number,
@@ -539,24 +244,7 @@ export type OnCreateUserSubscription = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -570,24 +258,7 @@ export type OnUpdateUserSubscription = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,
@@ -601,69 +272,7 @@ export type OnDeleteUserSubscription = {
     __typename: "User",
     id: string,
     email: string,
-    username: string,
-    Notes?:  {
-      __typename: "ModelNoteConnection",
-      items:  Array< {
-        __typename: "Note",
-        id: string,
-        title: string,
-        content: string,
-        AuthorId: string,
-        createdAt: string,
-        updatedAt: string,
-        _version: number,
-        _deleted?: boolean | null,
-        _lastChangedAt: number,
-      } | null >,
-      nextToken?: string | null,
-      startedAt?: number | null,
-    } | null,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type OnCreateNoteSubscription = {
-  onCreateNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type OnUpdateNoteSubscription = {
-  onUpdateNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
-    createdAt: string,
-    updatedAt: string,
-    _version: number,
-    _deleted?: boolean | null,
-    _lastChangedAt: number,
-  } | null,
-};
-
-export type OnDeleteNoteSubscription = {
-  onDeleteNote?:  {
-    __typename: "Note",
-    id: string,
-    title: string,
-    content: string,
-    AuthorId: string,
+    username?: string | null,
     createdAt: string,
     updatedAt: string,
     _version: number,

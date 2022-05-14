@@ -1,20 +1,50 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-13 16:38:12
- * @LastEditTime: 2022-05-13 17:30:52
+ * @LastEditTime: 2022-05-13 21:57:07
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/Login/index.tsx
  */
-import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import Card from '../../components/Card';
 import FlexBox from '../../components/FlexBox';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/slices/AuthSlice';
 import './index.scss';
 
-const Login = () => {
-    const onFinish = (values: any) => {
-        console.log('Received values of form: ', values);
+const Login = (): React.ReactElement => {
+    const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const onFinish = async (values: any) => {
+        setIsLoading(true);
+        const res = await dispatch(signIn({
+            email: values.username,
+            password: values.password
+        }) as any);
+        setIsLoading(false);
+        if (res.meta.requestStatus === 'rejected') {
+            if (res.error.code === 'UserNotConfirmedException') {
+                navigate(
+                    '/email-confirm',
+                    { 
+                        replace: false,
+                        state:{ email: res.meta.arg.email}
+                    }
+                );
+                message.warning(res.error.message);
+            } else {
+                message.error(res.error.message);
+            }
+        }
+        if (res.meta.requestStatus === 'fulfilled') {
+            message.success('Logged in successfully!');
+            navigate('/home');
+        }
     };
     
     return (
@@ -28,12 +58,12 @@ const Login = () => {
                             className="login-form"
                             initialValues={{ remember: true }}
                             onFinish={onFinish}
-                            >
+                        >
                             <Form.Item
                                 name="username"
                                 rules={[{ required: true, message: 'Please input your Username!' }]}
                             >
-                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                                <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username/Email" />
                             </Form.Item>
                             <Form.Item
                                 name="password"
@@ -51,12 +81,12 @@ const Login = () => {
                                 </Form.Item>
 
                                 <a className="login-form-forgot" href="/register">
-                                Forgot password
+                                    Forgot password
                                 </a>
                             </Form.Item>
 
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" className="login-form-button">
+                                <Button type="primary" htmlType="submit" className="login-form-button" loading={isLoading}>
                                     Log in
                                 </Button>
                                 <div className='register-now'>

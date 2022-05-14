@@ -1,0 +1,10 @@
+[
+  {
+    "groupName": "shareNoteUser",
+    "precedence": 1
+  },
+  {
+    "groupName": "shareNoteAdmin",
+    "precedence": 2
+  }
+]
