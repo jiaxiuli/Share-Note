@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-11 14:02:07
- * @LastEditTime: 2022-05-11 14:03:37
+ * @LastEditTime: 2022-05-15 14:03:44
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/common/Interfaces.ts
  */
@@ -17,4 +17,16 @@ export interface PostsItemProps {
     content: string;
     className?: string;
     style?: React.CSSProperties;
+}
+
+export interface UserInfo {
+    email: string;
+    id: string;
+    user_pool_id: string;
+    user_sub_id: string;
+    username: string;
+    [propName: string]: any;
+}
+export interface CommonPropsWithUserInfo {
+    userInfo: UserInfo | null;
 }

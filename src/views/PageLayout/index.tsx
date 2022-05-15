@@ -11,10 +11,32 @@ import SiderContent from '../../components/SiderContent';
 import HeaderContent from '../../components/HeaderContent';
 import Login from '../Login';
 import { Routes, Route, Navigate } from "react-router-dom";
+import { loadUser } from '../../redux/slices/AuthSlice';
+import { getUserInfo } from '../../redux/slices/UserSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import './index.scss';
 
 const PageLayout = () => {
     const { Header, Sider, Content } = Layout;
+
+    const dispatch = useDispatch();
+
+    const user = useSelector((state: any) => state.auth.user);
+    const userInfo = useSelector((state: any) => state.user.userInfo);
+    console.info('current user: ', user, userInfo)
+
+    useEffect(() => {
+        dispatch(loadUser() as any);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        if (user) {
+            dispatch(getUserInfo({id: user.username}) as any).then((res: any) => console.log(res));
+            // dispatch(listUserInfo() as any);
+        }
+    }, [dispatch, user]);
     
     return (
         <>

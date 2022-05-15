@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-13 16:38:12
- * @LastEditTime: 2022-05-15 12:09:37
+ * @LastEditTime: 2022-05-15 14:06:44
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/Register/index.tsx
  */
@@ -28,7 +28,6 @@ const Register = (): React.ReactElement => {
             password: values.password,
             email: values.email
         }) as any);
-        setIsLoading(false);
         if (res.meta.requestStatus === 'rejected') {
             message.error(res.error.message);
         }
@@ -49,6 +48,7 @@ const Register = (): React.ReactElement => {
                 message.error(res.error.message);
             }
         }
+        setIsLoading(false);
     };
     
     const onFinishFailed = (errorInfo: any) => {
