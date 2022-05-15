@@ -1,4 +1,10 @@
 .note-item-main {
     width: 100%;
     height: auto;
+
+    .note-item-top {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
 }

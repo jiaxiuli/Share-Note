@@ -2,6 +2,178 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getPost = /* GraphQL */ `
+  query GetPost($id: ID!) {
+    getPost(id: $id) {
+      id
+      message
+      Note {
+        id
+        title
+        content
+        author {
+          id
+          email
+          user_sub_id
+          user_pool_id
+          username
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        noteAuthorId
+      }
+      User {
+        id
+        email
+        user_sub_id
+        user_pool_id
+        username
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      postNoteId
+      postUserId
+    }
+  }
+`;
+export const listPosts = /* GraphQL */ `
+  query ListPosts(
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        message
+        Note {
+          id
+          title
+          content
+          author {
+            id
+            email
+            user_sub_id
+            user_pool_id
+            username
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          noteAuthorId
+        }
+        User {
+          id
+          email
+          user_sub_id
+          user_pool_id
+          username
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        postNoteId
+        postUserId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncPosts = /* GraphQL */ `
+  query SyncPosts(
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPosts(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        message
+        Note {
+          id
+          title
+          content
+          author {
+            id
+            email
+            user_sub_id
+            user_pool_id
+            username
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+          noteAuthorId
+        }
+        User {
+          id
+          email
+          user_sub_id
+          user_pool_id
+          username
+          createdAt
+          updatedAt
+          _version
+          _deleted
+          _lastChangedAt
+        }
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        postNoteId
+        postUserId
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
 export const getNote = /* GraphQL */ `
   query GetNote($id: ID!) {
     getNote(id: $id) {

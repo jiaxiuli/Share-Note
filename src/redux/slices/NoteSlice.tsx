@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-15 09:56:26
- * @LastEditTime: 2022-05-15 19:02:57
+ * @LastEditTime: 2022-05-15 21:27:43
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/redux/slices/NoteSlice.tsx
  */
@@ -18,7 +18,7 @@ const initialState = {
   };
 
   export const getNotesByUserId = createAsyncThunk(
-    "profile/getNotesByUserId",
+    "note/getNotesByUserId",
     async ({ filter }: any) => {
       try {
         const response = await API.graphql({
@@ -33,7 +33,7 @@ const initialState = {
   );
 
   export const createNoteFromUserId = createAsyncThunk(
-      "profile/createNoteFromUserId",
+      "note/createNoteFromUserId",
       async ({ createNoteInput }: any) => {
         try {
           const response = await API.graphql(

@@ -1,4 +1,22 @@
 .posts-item-main {
     width: 100%;
     box-sizing: border-box;
+
+    .posts-item-box-title {
+        width: 90%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .posts-item-box-content {
+        font-size: 12px;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+        display: -webkit-box; 
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        max-height: 90px;
+    }
 }

@@ -2,21 +2,21 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateNoteInput = {
+export type CreatePostInput = {
   id?: string | null,
-  title: string,
-  content?: string | null,
+  message?: string | null,
   _version?: number | null,
-  noteAuthorId?: string | null,
+  postNoteId?: string | null,
+  postUserId?: string | null,
 };
 
-export type ModelNoteConditionInput = {
-  title?: ModelStringInput | null,
-  content?: ModelStringInput | null,
-  and?: Array< ModelNoteConditionInput | null > | null,
-  or?: Array< ModelNoteConditionInput | null > | null,
-  not?: ModelNoteConditionInput | null,
-  noteAuthorId?: ModelIDInput | null,
+export type ModelPostConditionInput = {
+  message?: ModelStringInput | null,
+  and?: Array< ModelPostConditionInput | null > | null,
+  or?: Array< ModelPostConditionInput | null > | null,
+  not?: ModelPostConditionInput | null,
+  postNoteId?: ModelIDInput | null,
+  postUserId?: ModelIDInput | null,
 };
 
 export type ModelStringInput = {
@@ -75,6 +75,21 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type Post = {
+  __typename: "Post",
+  id: string,
+  message?: string | null,
+  Note?: Note | null,
+  User?: User | null,
+  createdAt: string,
+  updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+  postNoteId?: string | null,
+  postUserId?: string | null,
+};
+
 export type Note = {
   __typename: "Note",
   id: string,
@@ -101,6 +116,36 @@ export type User = {
   _version: number,
   _deleted?: boolean | null,
   _lastChangedAt: number,
+};
+
+export type UpdatePostInput = {
+  id: string,
+  message?: string | null,
+  _version?: number | null,
+  postNoteId?: string | null,
+  postUserId?: string | null,
+};
+
+export type DeletePostInput = {
+  id: string,
+  _version?: number | null,
+};
+
+export type CreateNoteInput = {
+  id?: string | null,
+  title: string,
+  content?: string | null,
+  _version?: number | null,
+  noteAuthorId?: string | null,
+};
+
+export type ModelNoteConditionInput = {
+  title?: ModelStringInput | null,
+  content?: ModelStringInput | null,
+  and?: Array< ModelNoteConditionInput | null > | null,
+  or?: Array< ModelNoteConditionInput | null > | null,
+  not?: ModelNoteConditionInput | null,
+  noteAuthorId?: ModelIDInput | null,
 };
 
 export type UpdateNoteInput = {
@@ -149,6 +194,23 @@ export type DeleteUserInput = {
   _version?: number | null,
 };
 
+export type ModelPostFilterInput = {
+  id?: ModelIDInput | null,
+  message?: ModelStringInput | null,
+  and?: Array< ModelPostFilterInput | null > | null,
+  or?: Array< ModelPostFilterInput | null > | null,
+  not?: ModelPostFilterInput | null,
+  postNoteId?: ModelIDInput | null,
+  postUserId?: ModelIDInput | null,
+};
+
+export type ModelPostConnection = {
+  __typename: "ModelPostConnection",
+  items:  Array<Post | null >,
+  nextToken?: string | null,
+  startedAt?: number | null,
+};
+
 export type ModelNoteFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
@@ -182,6 +244,180 @@ export type ModelUserConnection = {
   items:  Array<User | null >,
   nextToken?: string | null,
   startedAt?: number | null,
+};
+
+export type CreatePostMutationVariables = {
+  input: CreatePostInput,
+  condition?: ModelPostConditionInput | null,
+};
+
+export type CreatePostMutation = {
+  createPost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
+  } | null,
+};
+
+export type UpdatePostMutationVariables = {
+  input: UpdatePostInput,
+  condition?: ModelPostConditionInput | null,
+};
+
+export type UpdatePostMutation = {
+  updatePost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
+  } | null,
+};
+
+export type DeletePostMutationVariables = {
+  input: DeletePostInput,
+  condition?: ModelPostConditionInput | null,
+};
+
+export type DeletePostMutation = {
+  deletePost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
+  } | null,
 };
 
 export type CreateNoteMutationVariables = {
@@ -343,6 +579,192 @@ export type DeleteUserMutation = {
     _version: number,
     _deleted?: boolean | null,
     _lastChangedAt: number,
+  } | null,
+};
+
+export type GetPostQueryVariables = {
+  id: string,
+};
+
+export type GetPostQuery = {
+  getPost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
+  } | null,
+};
+
+export type ListPostsQueryVariables = {
+  filter?: ModelPostFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListPostsQuery = {
+  listPosts?:  {
+    __typename: "ModelPostConnection",
+    items:  Array< {
+      __typename: "Post",
+      id: string,
+      message?: string | null,
+      Note?:  {
+        __typename: "Note",
+        id: string,
+        title: string,
+        content?: string | null,
+        author?:  {
+          __typename: "User",
+          id: string,
+          email: string,
+          user_sub_id: string,
+          user_pool_id: string,
+          username?: string | null,
+          createdAt: string,
+          updatedAt: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
+        } | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        noteAuthorId?: string | null,
+      } | null,
+      User?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      postNoteId?: string | null,
+      postUserId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncPostsQueryVariables = {
+  filter?: ModelPostFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncPostsQuery = {
+  syncPosts?:  {
+    __typename: "ModelPostConnection",
+    items:  Array< {
+      __typename: "Post",
+      id: string,
+      message?: string | null,
+      Note?:  {
+        __typename: "Note",
+        id: string,
+        title: string,
+        content?: string | null,
+        author?:  {
+          __typename: "User",
+          id: string,
+          email: string,
+          user_sub_id: string,
+          user_pool_id: string,
+          username?: string | null,
+          createdAt: string,
+          updatedAt: string,
+          _version: number,
+          _deleted?: boolean | null,
+          _lastChangedAt: number,
+        } | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+        noteAuthorId?: string | null,
+      } | null,
+      User?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      postNoteId?: string | null,
+      postUserId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -529,6 +951,165 @@ export type SyncUsersQuery = {
     } | null >,
     nextToken?: string | null,
     startedAt?: number | null,
+  } | null,
+};
+
+export type OnCreatePostSubscription = {
+  onCreatePost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
+  } | null,
+};
+
+export type OnUpdatePostSubscription = {
+  onUpdatePost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
+  } | null,
+};
+
+export type OnDeletePostSubscription = {
+  onDeletePost?:  {
+    __typename: "Post",
+    id: string,
+    message?: string | null,
+    Note?:  {
+      __typename: "Note",
+      id: string,
+      title: string,
+      content?: string | null,
+      author?:  {
+        __typename: "User",
+        id: string,
+        email: string,
+        user_sub_id: string,
+        user_pool_id: string,
+        username?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        _version: number,
+        _deleted?: boolean | null,
+        _lastChangedAt: number,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+      noteAuthorId?: string | null,
+    } | null,
+    User?:  {
+      __typename: "User",
+      id: string,
+      email: string,
+      user_sub_id: string,
+      user_pool_id: string,
+      username?: string | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null,
+    createdAt: string,
+    updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
+    postNoteId?: string | null,
+    postUserId?: string | null,
   } | null,
 };
 

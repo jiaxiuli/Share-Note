@@ -10,3 +10,21 @@
         padding: 24px;
     }
 }
+
+.select-box-content {
+    font-size: 12px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    max-height: 90px;
+}
+
+.select-box-title {
+    width: 90%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

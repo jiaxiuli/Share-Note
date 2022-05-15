@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-11 14:02:07
- * @LastEditTime: 2022-05-15 19:25:06
+ * @LastEditTime: 2022-05-15 22:35:31
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/common/Interfaces.ts
  */
@@ -12,18 +12,12 @@ export interface CardProps {
     style?: React.CSSProperties;
 }
 
-export interface PostsItemProps {
-    title: string;
-    content: string;
-    className?: string;
-    style?: React.CSSProperties;
-}
-
 export interface NoteItemProps {
     title: string;
     content: string;
     className?: string;
     style?: React.CSSProperties;
+    handleShareNote?: () => void;
 }
 
 export interface UserInfo {
@@ -32,6 +26,22 @@ export interface UserInfo {
     user_pool_id: string;
     user_sub_id: string;
     username: string;
+    [propName: string]: any;
+}
+
+export interface Note {
+    content: string;
+    id: string
+    noteAuthorId: string;
+    title: string;
+    [propName: string]: any;
+}
+export interface PostsItemProps {
+    Note: Note;
+    User: UserInfo;
+    message: string;
+    className?: string;
+    style?: React.CSSProperties;
     [propName: string]: any;
 }
 export interface CommonPropsWithUserInfo {

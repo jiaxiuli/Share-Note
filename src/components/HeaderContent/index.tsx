@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-15 19:19:59
+ * @LastEditTime: 2022-05-15 22:13:24
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/components/HeaderContent/index.tsx
  */
@@ -37,7 +37,7 @@ const HeaderContent = (): React.ReactElement => {
             navigate('/home');
             window.location.reload();
         } else {
-        message.error(res.error.message);
+            message.error(res.error.message);
         }
     }
     return (

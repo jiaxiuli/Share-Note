@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-15 15:59:38
+ * @LastEditTime: 2022-05-15 22:32:18
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/Home/index.tsx
  */
@@ -16,7 +16,7 @@ import './index.scss';
 
 const Home = () => {
     const userInfo = useSelector((state: any) => state.user.userInfo);
-    
+
     return (
         <div className='home-main'>
             <div className='home-content'>

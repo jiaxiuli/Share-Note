@@ -1,44 +1,47 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-15 19:37:36
+ * @LastEditTime: 2022-05-15 22:36:21
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/components/PostsList/index.tsx
  */
-import { Typography } from 'antd';
-import React from 'react';
+import { Typography, message } from 'antd';
+import React, { useEffect } from 'react';
 import Card from '../Card';
 import PostsItem from '../PostsItem';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPosts } from '../../redux/slices/PostSlice';
 import './index.scss';
 
 const { Title } = Typography;
 
 const PostsList = ():React.ReactElement => {
-    const posts: any = [{
-        id: '1',
-        title: 'Github',
-        content: 'GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own'
-    },{
-        id: '2',
-        title: 'Github',
-        content: 'GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own'
-    },{
-        id: '3',
-        title: 'Github',
-        content: 'GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own'
-    },{
-        id: '4',
-        title: 'Github',
-        content: 'GitHub, Inc. is a provider of Internet hosting for software development and version control using Git. It offers the distributed version control and source code management functionality of Git, plus its own'
-    }];
+    const posts = useSelector((state: any) => state.post.posts);
+    const dispatch = useDispatch();
+    console.log(posts)
+
+    useEffect(() => {
+        dispatch(getPosts({}) as any).then((res: any) => {
+            if (res.meta.requestStatus === "rejected") {
+                message.error('errors met when fetching posts');
+                console.error(res.error.message);
+            }
+        });
+    }, [dispatch]);
+
     return (
         <div className='posts-list-main'>
             <Title level={5}>Popular posts</Title>
             <div>
                 <Card className='posts-list-box'>
                     {
-                        posts?.map((item: any) => {
-                            return <PostsItem key={item.id} title={item.title} content={item.content}/>
+                        posts?.listPosts?.items?.map((item: any) => {
+                            return <PostsItem
+                                        key={item.id}
+                                        Note={item.Note}
+                                        User={item.User}
+                                        message={item.message}
+                                    />
                         }) || null
                     }
                 </Card>
