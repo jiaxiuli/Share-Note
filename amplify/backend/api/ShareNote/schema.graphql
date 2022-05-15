@@ -1,6 +1,8 @@
-type User @model @auth(rules: [{allow: public}]) {
+type User @model @auth(rules: [{allow: public}, {allow: private}]) {
   id: ID!
   email: AWSEmail!
+  user_sub_id: String!
+  user_pool_id: String!
   username: String
 }
  

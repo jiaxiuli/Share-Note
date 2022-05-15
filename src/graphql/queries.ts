@@ -7,6 +7,8 @@ export const getUser = /* GraphQL */ `
     getUser(id: $id) {
       id
       email
+      user_sub_id
+      user_pool_id
       username
       createdAt
       updatedAt
@@ -26,6 +28,8 @@ export const listUsers = /* GraphQL */ `
       items {
         id
         email
+        user_sub_id
+        user_pool_id
         username
         createdAt
         updatedAt
@@ -54,6 +58,8 @@ export const syncUsers = /* GraphQL */ `
       items {
         id
         email
+        user_sub_id
+        user_pool_id
         username
         createdAt
         updatedAt

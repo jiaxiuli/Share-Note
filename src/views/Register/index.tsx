@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-13 16:38:12
- * @LastEditTime: 2022-05-14 08:59:05
+ * @LastEditTime: 2022-05-15 12:09:37
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/Register/index.tsx
  */
@@ -10,6 +10,7 @@ import { Form, Input, Button, message } from 'antd';
 import Card from '../../components/Card';
 import FlexBox from '../../components/FlexBox';
 import { signUp } from '../../redux/slices/AuthSlice';
+import { createNewUser } from '../../redux/slices/UserSlice';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import './index.scss';
@@ -27,14 +28,26 @@ const Register = (): React.ReactElement => {
             password: values.password,
             email: values.email
         }) as any);
-        console.log('sign up return', res);
         setIsLoading(false);
         if (res.meta.requestStatus === 'rejected') {
             message.error(res.error.message);
         }
         if (res.meta.requestStatus === 'fulfilled') {
-            message.success('Signed up successfully!');
-            navigate('/email-confirm');
+            const createUserInput = {
+                id: res.payload.userSub,
+                email: res.meta.arg.email,
+                username: res.meta.arg.username,
+                user_sub_id: res.payload.userSub,
+                user_pool_id: res.payload.user.pool.userPoolId
+            };
+            // 注册成功 在user表中写入新的user信息
+            const createRes = await dispatch(createNewUser({createUserInput}) as any);
+            if (createRes.meta.requestStatus === 'fulfilled') {
+                message.success('Signed up successfully!');
+                navigate('/email-confirm');
+            } else {
+                message.error(res.error.message);
+            }
         }
     };
     

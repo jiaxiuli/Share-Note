@@ -20,12 +20,12 @@
       "function": {
         "AdminQueriesb0e8523a": {
           "deploymentBucketName": "amplify-sharenote-staging-52625-deployment",
-          "s3Key": "amplify-builds/AdminQueriesb0e8523a-596b59446545562b6845-build.zip"
+          "s3Key": "amplify-builds/AdminQueriesb0e8523a-466f78767257554a7572-build.zip"
         },
         "ShareNotePostConfirmation": {
           "GROUP": "ampliy push",
           "deploymentBucketName": "amplify-sharenote-staging-52625-deployment",
-          "s3Key": "amplify-builds/ShareNotePostConfirmation-344543654c4d64724c4a-build.zip"
+          "s3Key": "amplify-builds/ShareNotePostConfirmation-513431566846544f6779-build.zip"
         }
       }
     }

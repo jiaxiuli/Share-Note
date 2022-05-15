@@ -17,6 +17,20 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
+                "user_sub_id": {
+                    "name": "user_sub_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "user_pool_id": {
+                    "name": "user_pool_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "username": {
                     "name": "username",
                     "isArray": false,
@@ -60,6 +74,15 @@ export const schema = {
                                     "delete",
                                     "read"
                                 ]
+                            },
+                            {
+                                "allow": "private",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
                             }
                         ]
                     }
@@ -69,5 +92,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "9e66bebcc8c0ef2d37eb289102aa84b8"
+    "version": "c3fe248a6c1619934ab28228bb581fe9"
 };

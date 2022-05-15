@@ -1,9 +1,9 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-13 16:38:12
- * @LastEditTime: 2022-05-13 22:36:01
- * @LastEditors: Shen Shu
- * @FilePath: \Share-Note-Web\src\views\EmailConfirm\index.tsx
+ * @LastEditTime: 2022-05-15 12:28:09
+ * @LastEditors: 李佳修
+ * @FilePath: /Share-Note/src/views/EmailConfirm/index.tsx
  */
 
 import "./index.scss";
@@ -11,6 +11,7 @@ import "./index.scss";
 import { Button, Form, Input, message } from "antd";
 import React, { useEffect } from "react";
 import {
+  signOut,
   emailConfirm,
   resendConfirmationCode,
 } from "../../redux/slices/AuthSlice";
@@ -54,8 +55,11 @@ const EmailConfirm = (): React.ReactElement => {
       message.error(res.error.message);
     }
     if (res.meta.requestStatus === "fulfilled") {
+      // 确认邮箱后 强制logout 重新登录
+      await dispatch(signOut() as any);
       message.success("Email has confirmed successfully!");
-      navigate("/home");
+      message.success("Please login!");
+      navigate("/login");
     }
   };
 

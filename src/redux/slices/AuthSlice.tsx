@@ -3,11 +3,8 @@ import Auth from "@aws-amplify/auth";
 
 const initialState = {
   isAuthenticated: null as any,
-  user: { username: "", attributes: { email: "" } },
+  user: null as any,
   cognitoGroup: [null as any],
-
-  //  Status: "idle",
-  //  Error: null,
   loadUserStatus: "idle",
   loadUserError: null as any,
   signInStatus: "idle",
@@ -133,7 +130,7 @@ const authSlice = createSlice({
       .addCase(loadUser.rejected, (state, action) => {
         state.loadUserStatus = "failed";
         state.isAuthenticated = false;
-        state.user = { username: "", attributes: { email: "" } };
+        state.user = null;
         state.cognitoGroup = ["unAuthenticated"];
 
         state.signInError = action.error.message;
