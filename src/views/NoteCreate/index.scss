@@ -1,0 +1,16 @@
+.create-note-main {
+    width: 80%;
+    height: auto;
+    padding: 24px;
+
+    .create-note-card {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        padding: 24px;
+
+        .create-note-form-container {
+            width: 80%;
+        }
+    }
+}

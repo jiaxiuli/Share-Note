@@ -1,0 +1,12 @@
+.my-note-main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+
+    .notes-container {
+        width: 80%;
+        padding: 24px;
+    }
+}

@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-15 09:56:06
+ * @LastEditTime: 2022-05-15 19:37:36
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/components/PostsList/index.tsx
  */
@@ -34,8 +34,8 @@ const PostsList = ():React.ReactElement => {
     return (
         <div className='posts-list-main'>
             <Title level={5}>Popular posts</Title>
-            <div className='posts-list-box'>
-                <Card>
+            <div>
+                <Card className='posts-list-box'>
                     {
                         posts?.map((item: any) => {
                             return <PostsItem key={item.id} title={item.title} content={item.content}/>

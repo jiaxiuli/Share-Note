@@ -1,3 +1,10 @@
+type Note @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String!
+  content: String
+  author: User @hasOne
+}
+
 type User @model @auth(rules: [{allow: public}, {allow: private}]) {
   id: ID!
   email: AWSEmail!

@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-15 14:02:48
+ * @LastEditTime: 2022-05-15 15:59:38
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/Home/index.tsx
  */
@@ -25,7 +25,6 @@ const Home = () => {
                     <PostsList />
                 </div>
                 <div className='home-content-sides'>
-                    <PersonalInfo userInfo={userInfo}/>
                     <PersonalInfo userInfo={userInfo}/>
                 </div>
             </div>

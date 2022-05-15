@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-13 16:38:12
- * @LastEditTime: 2022-05-15 12:28:09
+ * @LastEditTime: 2022-05-15 19:06:32
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/EmailConfirm/index.tsx
  */
@@ -16,7 +16,6 @@ import {
   resendConfirmationCode,
 } from "../../redux/slices/AuthSlice";
 import { useLocation, useNavigate } from "react-router";
-
 import Card from "../../components/Card";
 import FlexBox from "../../components/FlexBox";
 import { useDispatch } from "react-redux";

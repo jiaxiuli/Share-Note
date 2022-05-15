@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-11 15:10:29
- * @LastEditTime: 2022-05-13 16:51:50
+ * @LastEditTime: 2022-05-15 18:42:38
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/views/PageLayout/index.tsx
  */
@@ -9,7 +9,8 @@ import { Layout } from 'antd';
 import Home from '../Home';
 import SiderContent from '../../components/SiderContent';
 import HeaderContent from '../../components/HeaderContent';
-import Login from '../Login';
+import MyNotes from '../MyNotes';
+import NoteCreate  from '../NoteCreate';
 import { Routes, Route, Navigate } from "react-router-dom";
 import { loadUser } from '../../redux/slices/AuthSlice';
 import { getUserInfo } from '../../redux/slices/UserSlice';
@@ -57,7 +58,8 @@ const PageLayout = () => {
                         <Routes>
                             <Route path="/" element={<Navigate to="/home" />} />
                             <Route path="home" element={<Home />} />
-                            <Route path="login" element={<Login />} />
+                            <Route path="my-note" element={<MyNotes />} />
+                            <Route path="note-create" element={<NoteCreate />} />
                         </Routes>
                     </Content>
                 </Layout>
