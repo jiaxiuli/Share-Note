@@ -20,6 +20,7 @@ export const createPost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -39,12 +40,15 @@ export const createPost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -73,6 +77,7 @@ export const updatePost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -92,12 +97,15 @@ export const updatePost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -126,6 +134,7 @@ export const deletePost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -145,12 +154,15 @@ export const deletePost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -176,6 +188,7 @@ export const createNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -206,6 +219,7 @@ export const updateNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -236,6 +250,7 @@ export const deleteNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -262,6 +277,7 @@ export const createUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version
@@ -281,6 +297,7 @@ export const updateUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version
@@ -300,6 +317,7 @@ export const deleteUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version

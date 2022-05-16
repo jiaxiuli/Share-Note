@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 16:31:36
- * @LastEditTime: 2022-05-15 22:25:01
+ * @LastEditTime: 2022-05-16 19:15:40
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/redux/store.tsx
  */
@@ -16,7 +16,7 @@ export default configureStore({
     auth: authReducer,
     user: userReducer,
     note: NoteReducer,
-    post: PostReducer
+    post: PostReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),

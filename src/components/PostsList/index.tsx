@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-12 09:25:05
- * @LastEditTime: 2022-05-15 22:36:21
+ * @LastEditTime: 2022-05-16 14:34:14
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/components/PostsList/index.tsx
  */
@@ -11,6 +11,7 @@ import Card from '../Card';
 import PostsItem from '../PostsItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../redux/slices/PostSlice';
+import { Post } from '../../common/Interfaces';
 import './index.scss';
 
 const { Title } = Typography;
@@ -35,12 +36,10 @@ const PostsList = ():React.ReactElement => {
             <div>
                 <Card className='posts-list-box'>
                     {
-                        posts?.listPosts?.items?.map((item: any) => {
+                        posts?.listPosts?.items?.map((item: Post) => {
                             return <PostsItem
                                         key={item.id}
-                                        Note={item.Note}
-                                        User={item.User}
-                                        message={item.message}
+                                        Post={item}
                                     />
                         }) || null
                     }

@@ -1,7 +1,7 @@
 /*
  * @Author: 李佳修
  * @Date: 2022-05-11 14:02:07
- * @LastEditTime: 2022-05-15 22:35:31
+ * @LastEditTime: 2022-05-16 14:51:16
  * @LastEditors: 李佳修
  * @FilePath: /Share-Note/src/common/Interfaces.ts
  */
@@ -36,10 +36,19 @@ export interface Note {
     title: string;
     [propName: string]: any;
 }
-export interface PostsItemProps {
-    Note: Note;
-    User: UserInfo;
+
+export interface Post {
+    id: string;
+    collected_users: Array<string> | null;
+    liked_users: Array<string> | null;
     message: string;
+    postUserId: string;
+    Note: Note,
+    User: UserInfo,
+    [propName: string]: any;
+}
+export interface PostsItemProps {
+    Post: Post;
     className?: string;
     style?: React.CSSProperties;
     [propName: string]: any;

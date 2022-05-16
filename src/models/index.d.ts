@@ -21,6 +21,8 @@ export declare class Post {
   readonly message?: string | null;
   readonly Note?: Note | null;
   readonly User?: User | null;
+  readonly liked_users: (string | null)[];
+  readonly collected_users: (string | null)[];
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   readonly postNoteId?: string | null;
@@ -47,6 +49,7 @@ export declare class User {
   readonly user_sub_id: string;
   readonly user_pool_id: string;
   readonly username?: string | null;
+  readonly collected_post: (string | null)[];
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);

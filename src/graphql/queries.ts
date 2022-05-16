@@ -17,6 +17,7 @@ export const getPost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -36,12 +37,15 @@ export const getPost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -72,6 +76,7 @@ export const listPosts = /* GraphQL */ `
             user_sub_id
             user_pool_id
             username
+            collected_post
             createdAt
             updatedAt
             _version
@@ -91,12 +96,15 @@ export const listPosts = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
         }
+        liked_users
+        collected_users
         createdAt
         updatedAt
         _version
@@ -136,6 +144,7 @@ export const syncPosts = /* GraphQL */ `
             user_sub_id
             user_pool_id
             username
+            collected_post
             createdAt
             updatedAt
             _version
@@ -155,12 +164,15 @@ export const syncPosts = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
           _deleted
           _lastChangedAt
         }
+        liked_users
+        collected_users
         createdAt
         updatedAt
         _version
@@ -186,6 +198,7 @@ export const getNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -218,6 +231,7 @@ export const listNotes = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -259,6 +273,7 @@ export const syncNotes = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -285,6 +300,7 @@ export const getUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version
@@ -306,6 +322,7 @@ export const listUsers = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -336,6 +353,7 @@ export const syncUsers = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version

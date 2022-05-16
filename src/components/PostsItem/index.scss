@@ -26,5 +26,16 @@
             line-clamp: 3;
             max-height: 90px;
         }
+
+        .post-item-info {
+            width: 100%;
+            display: flex;
+            margin-top: 24px;
+    
+            .post-item-info-icon {
+                // margin-right: 60px;
+                width: 20%;
+            }
+        }
     }
 }

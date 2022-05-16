@@ -3,6 +3,8 @@ type Post @model @auth(rules: [{allow: public}]) {
   message: String
   Note: Note @hasOne
   User: User @hasOne
+  liked_users: [String]!
+  collected_users: [String]!
 }
 
 type Note @model @auth(rules: [{allow: public}]) {
@@ -18,5 +20,6 @@ type User @model @auth(rules: [{allow: public}, {allow: private}]) {
   user_sub_id: String!
   user_pool_id: String!
   username: String
+  collected_post: [String]!
 }
  

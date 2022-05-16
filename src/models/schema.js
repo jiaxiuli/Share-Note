@@ -45,6 +45,22 @@ export const schema = {
                         "targetName": "postUserId"
                     }
                 },
+                "liked_users": {
+                    "name": "liked_users",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
+                "collected_users": {
+                    "name": "collected_users",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -226,6 +242,14 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "collected_post": {
+                    "name": "collected_post",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": false
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -280,5 +304,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "a0c9f44c6764be72303365ca9319e25f"
+    "version": "3de899dc9c7d31f516921fdf0f10c1e7"
 };

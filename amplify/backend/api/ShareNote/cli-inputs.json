@@ -3,7 +3,7 @@
   "serviceConfiguration": {
     "apiName": "ShareNote",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-08f03455-24fc-4648-bfc4-b5cb9e5be68c/amplify/backend/api/ShareNote/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-9674fd62-387e-429e-ad7b-778b965b3457/amplify/backend/api/ShareNote/schema.graphql",
     "defaultAuthType": {
       "mode": "API_KEY",
       "keyDescription": "api key description",

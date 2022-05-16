@@ -17,6 +17,7 @@ export const onCreatePost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -36,12 +37,15 @@ export const onCreatePost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -67,6 +71,7 @@ export const onUpdatePost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -86,12 +91,15 @@ export const onUpdatePost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -117,6 +125,7 @@ export const onDeletePost = /* GraphQL */ `
           user_sub_id
           user_pool_id
           username
+          collected_post
           createdAt
           updatedAt
           _version
@@ -136,12 +145,15 @@ export const onDeletePost = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
       }
+      liked_users
+      collected_users
       createdAt
       updatedAt
       _version
@@ -164,6 +176,7 @@ export const onCreateNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -191,6 +204,7 @@ export const onUpdateNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -218,6 +232,7 @@ export const onDeleteNote = /* GraphQL */ `
         user_sub_id
         user_pool_id
         username
+        collected_post
         createdAt
         updatedAt
         _version
@@ -241,6 +256,7 @@ export const onCreateUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version
@@ -257,6 +273,7 @@ export const onUpdateUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version
@@ -273,6 +290,7 @@ export const onDeleteUser = /* GraphQL */ `
       user_sub_id
       user_pool_id
       username
+      collected_post
       createdAt
       updatedAt
       _version
