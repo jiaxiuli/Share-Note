@@ -2,21 +2,29 @@
     width: 100%;
     box-sizing: border-box;
 
-    .posts-item-box-title {
-        width: 90%;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
+    .post-item-author {
+        font-weight: 600;
     }
 
-    .posts-item-box-content {
-        font-size: 12px;
-        overflow: hidden; 
-        text-overflow: ellipsis;
-        display: -webkit-box; 
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-        max-height: 90px;
+    .post-item-content {
+        padding: 8px 40px;
+        .posts-item-note-title {
+            width: 90%;
+            font-weight: 600;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    
+        .posts-item-note-content {
+            font-size: 12px;
+            overflow: hidden; 
+            text-overflow: ellipsis;
+            display: -webkit-box; 
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            max-height: 90px;
+        }
     }
 }
