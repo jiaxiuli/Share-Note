@@ -1,6 +1,9 @@
 {
   "trigger": true,
-  "modules": ["add-to-group", "custom"],
+  "modules": [
+    "add-to-group",
+    "custom"
+  ],
   "parentResource": "ShareNote",
   "functionName": "ShareNotePostConfirmation",
   "resourceName": "ShareNotePostConfirmation",
